@@ -2,11 +2,13 @@ name: Docker Image Security Scan
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - main
 
 jobs:
   scan:
     runs-on: ubuntu-latest
-
     steps:
       - name: Scan Docker Hub image with Trivy
         uses: aquasecurity/trivy-action@0.35.0
